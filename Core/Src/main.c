@@ -63,7 +63,7 @@ void CDC_ReceiveCallBack(uint8_t *buf, uint32_t len)
 
 void Motors_Control(void)
 {
-	uint8_t DutyCycleA = buf[0];
+	uint8_t DutyCycleA = buf[0]; //Rimvydas
 	uint8_t DutyCycleB = buf[2];
 
 	htim2.Instance->CCR1 = DutyCycleA; // Motor A speed control
