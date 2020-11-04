@@ -50,8 +50,8 @@ Semestro_projektas.bin \
 all: Semestro_projektas.elf secondary-outputs
 
 # Tool invocations
-Semestro_projektas.elf: $(OBJS) $(USER_OBJS) C:\Users\satur\Desktop\VSCode\Semestro_projektas\STM32L053C8TX_FLASH.ld
-	arm-none-eabi-gcc -o "Semestro_projektas.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\Users\satur\Desktop\VSCode\Semestro_projektas\STM32L053C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Semestro_projektas.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Semestro_projektas.elf: $(OBJS) $(USER_OBJS) C:\Users\rimpun\STM32CubeIDE\workspace_1.1.0\Semestro_projektas\STM32L053C8TX_FLASH.ld
+	arm-none-eabi-gcc -o "Semestro_projektas.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\Users\rimpun\STM32CubeIDE\workspace_1.1.0\Semestro_projektas\STM32L053C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Semestro_projektas.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
