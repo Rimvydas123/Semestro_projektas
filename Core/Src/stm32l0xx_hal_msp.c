@@ -60,7 +60,7 @@
 /* USER CODE END 0 */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-                                        /**
+                    /**
   * Initializes the Global MSP.
   */
 void HAL_MspInit(void)
@@ -175,17 +175,6 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
 
   /* USER CODE END TIM2_MspInit 1 */
   }
-  else if(htim_base->Instance==TIM22)
-  {
-  /* USER CODE BEGIN TIM22_MspInit 0 */
-
-  /* USER CODE END TIM22_MspInit 0 */
-    /* Peripheral clock enable */
-    __HAL_RCC_TIM22_CLK_ENABLE();
-  /* USER CODE BEGIN TIM22_MspInit 1 */
-
-  /* USER CODE END TIM22_MspInit 1 */
-  }
 
 }
 
@@ -197,9 +186,12 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
   /* USER CODE BEGIN TIM2_MspPostInit 0 */
 
   /* USER CODE END TIM2_MspPostInit 0 */
+
     __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
     /**TIM2 GPIO Configuration
     PA5     ------> TIM2_CH1
+    PB10     ------> TIM2_CH3
     */
     GPIO_InitStruct.Pin = GPIO_PIN_5;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -208,30 +200,16 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
     GPIO_InitStruct.Alternate = GPIO_AF5_TIM2;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /* USER CODE BEGIN TIM2_MspPostInit 1 */
-
-  /* USER CODE END TIM2_MspPostInit 1 */
-  }
-  else if(htim->Instance==TIM22)
-  {
-  /* USER CODE BEGIN TIM22_MspPostInit 0 */
-
-  /* USER CODE END TIM22_MspPostInit 0 */
-
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**TIM22 GPIO Configuration
-    PB4     ------> TIM22_CH1
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_4;
+    GPIO_InitStruct.Pin = GPIO_PIN_10;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF4_TIM22;
+    GPIO_InitStruct.Alternate = GPIO_AF2_TIM2;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /* USER CODE BEGIN TIM22_MspPostInit 1 */
+  /* USER CODE BEGIN TIM2_MspPostInit 1 */
 
-  /* USER CODE END TIM22_MspPostInit 1 */
+  /* USER CODE END TIM2_MspPostInit 1 */
   }
 
 }
@@ -253,17 +231,6 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
   /* USER CODE BEGIN TIM2_MspDeInit 1 */
 
   /* USER CODE END TIM2_MspDeInit 1 */
-  }
-  else if(htim_base->Instance==TIM22)
-  {
-  /* USER CODE BEGIN TIM22_MspDeInit 0 */
-
-  /* USER CODE END TIM22_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_TIM22_CLK_DISABLE();
-  /* USER CODE BEGIN TIM22_MspDeInit 1 */
-
-  /* USER CODE END TIM22_MspDeInit 1 */
   }
 
 }
